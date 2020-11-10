@@ -11,7 +11,7 @@
 | first_name         | string   | null: false |
 | last_name_kana     | string   | null: false |
 | first_name_kana    | string   | null: false |
-| birthday           | datetime | null: false |
+| birthday           | date     | null: false |
 
 ### Association
 
@@ -22,7 +22,7 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| name         | text       | null: false                    |
+| name         | string     | null: false                    |
 | description  | text       | null: false                    |
 | price        | integer    | null: false                    |
 | category_id  | integer    | null: false                    |
@@ -54,7 +54,7 @@
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| postcode        | integer    | null: false                    |
+| postcode        | string     | null: false                    |
 | prefecture_id   | integer    | null: false                    |
 | city            | string     | null: false                    |
 | block           | string     | null: false                    |

@@ -34,7 +34,7 @@
 
 ### Association
 
-- belogs_to :user
+- beloｎgs_to :user
 - has_one   :purchase_record
 
 ## purchase_records テーブル

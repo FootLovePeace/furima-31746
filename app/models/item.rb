@@ -13,12 +13,12 @@ class Item < ApplicationRecord
     validates :image   
     validates :name
     validates :description
-    validates :price, inclusion: {in: 300..9999999 } 
+    validates :price, inclusion: {in: 300..9999999, message: "Out of setting range" } 
   end
 
-  validates :price, format: { with: /\A[0-9]+\z/ }
+  validates :price, numericality: { only_integer: true , message: 'Half-width number' }  
 
-  with_options numericality: { other_than: 1 }  do
+  with_options numericality: { other_than: 1, message: 'Select' } do
     validates :category_id
     validates :status_id
     validates :postage_id

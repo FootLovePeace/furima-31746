@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  beloｎgs_to :user
+  belongs_to :user
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -10,9 +10,10 @@ class Item < ApplicationRecord
   belongs_to :ship_date
 
   with_options presence: true do
+    validates :image   
     validates :name
     validates :description
-    validates :price, format: { with: /^[0-9]+$/, message: 'Full-width characters' } 
+    validates :price
   end
 
   with_options numericality: { other_than: 1 }  do

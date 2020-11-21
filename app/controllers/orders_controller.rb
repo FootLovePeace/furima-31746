@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
-  before_action :set_item, only: [:new, :create]
+  before_action :set_item, only: [:index, :create]
   before_action :move_to_root, only: [:index, :create]
 
   def index
@@ -34,12 +34,11 @@ class OrdersController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
   end
 
   def move_to_root
-    @item = Item.find(params[:item_id]) 
-    unless user_signed_in? && current_user.id != @item.user_id && @item.purchase_record == nil
+    unless @item.purchase_record == nil
     redirect_to root_path 
     end
   end

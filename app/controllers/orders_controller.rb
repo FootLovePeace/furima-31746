@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
   end
 
   def move_to_root
-    unless @item.purchase_record == nil
+    if current_user.id == @item.user_id || @item.purchase_record != nil
     redirect_to root_path 
     end
   end
